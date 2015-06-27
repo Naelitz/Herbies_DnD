@@ -21,7 +21,7 @@ public class Tools extends HBox
     Button dungeonMaster = new Button("Dungeon Master");
     StackPane dungeonMasterStack = new StackPane();
     ImageView dungeonMasterPng = new ImageView();
-    Image dMP = new Image("dungeonMaster.png");
+    Image dMP = new Image("dungeonmaster.png");
 
     Button character = new Button("Characters");
     StackPane characterStack = new StackPane();
