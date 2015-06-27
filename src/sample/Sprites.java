@@ -30,7 +30,7 @@ public class Sprites extends Pane
 
         }
 
-        if(string == "skeleton")
+        if(string.equals("skeleton"))
         {
             GridPane grid = new GridPane();
             this.getChildren().add(grid);
