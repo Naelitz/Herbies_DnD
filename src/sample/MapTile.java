@@ -8,9 +8,17 @@ import javafx.scene.control.Button;
  */
 public class MapTile extends Button
 {
-    MapTile()
+    DungeonMaster master;
+    MapTile(DungeonMaster master)
     {
+        this.master = master;
+        this.minHeight(25);
+        this.minWidth(25);
         this.setWidth(25);
         this.setWidth(25);
+
+        this.setOnAction(e -> {
+            System.out.println("clicked");
+        });
     }
 }

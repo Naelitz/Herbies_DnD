@@ -24,23 +24,22 @@ public class DungeonMaster {
             Rectangle background = new Rectangle();
             Label help = new Label();
             Label instruction = new Label();
-            VBox list = new VBox();
-            layout.setLeft(list);
-            list.setPrefWidth(200);
-            list.getChildren().add(new Sprites("dragon"));
-            list.getChildren().add(new Sprites("skeleton"));
+            Sprites list = new Sprites();
             GridPane center = new GridPane();
             ScrollPane centerScroll = new ScrollPane(center);
+            layout.setLeft(list);
+
 
             Stage window = new Stage();
-
+            list.prefWidthProperty().bind(window.widthProperty().divide(4));
             window.initModality(Modality.APPLICATION_MODAL);
+
             layout.setCenter(centerScroll);
-            for(int i = 0 ; i < 100 ; i++)
+            for(int i = 0 ; i < 50 ; i++)
             {
-                for (int j = 0 ; j < 100 ; j++)
+                for (int j = 0 ; j < 50 ; j++)
                 {
-                    center.add(new MapTile(), i, j);
+                    center.add(new MapTile(this), i, j);
                 }
             }
 
