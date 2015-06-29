@@ -11,8 +11,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class DungeonMaster {
-
-        public static void display(Main main)
+        Stage window;
+        Sprites list;
+        Sprite currentSprite;
+        DungeonMaster(Main main)
         {
             // This is the menu that gets displayed if the help button is clicked.
             // Just displays a new window when the help button is clicked.
@@ -24,15 +26,16 @@ public class DungeonMaster {
             Rectangle background = new Rectangle();
             Label help = new Label();
             Label instruction = new Label();
-            Sprites list = new Sprites();
+            this.list = new Sprites(this);
             GridPane center = new GridPane();
             ScrollPane centerScroll = new ScrollPane(center);
             layout.setLeft(list);
 
 
-            Stage window = new Stage();
-            list.prefWidthProperty().bind(window.widthProperty().divide(4));
+            this.window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);
+            list.prefWidthProperty().bind(window.widthProperty().divide(4));
+            window.setFullScreen(true);
 
             layout.setCenter(centerScroll);
             for(int i = 0 ; i < 50 ; i++)
@@ -45,6 +48,23 @@ public class DungeonMaster {
 
             Scene scene = new Scene(layout, 800, 800);
             window.setScene(scene);
-            window.showAndWait();
+            //window.showAndWait();
         }
+
+        void display()
+        {
+            window.show();
+        }
+
+        void setSprite(Sprite sprite)
+        {
+            this.currentSprite = sprite;
+        }
+
+        Sprite getSprite()
+        {
+            return this.currentSprite;
+        }
+
+
     }

@@ -1,7 +1,11 @@
 package sample;
 
 
+
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 /**
  * Created by david_000 on 6/25/2015.
@@ -9,8 +13,17 @@ import javafx.scene.control.Button;
 public class MapTile extends Button
 {
     DungeonMaster master;
+    Image icon;
+    ImageView iconBack = new ImageView();
+    Pane sub = new Pane();
     MapTile(DungeonMaster master)
     {
+        this.iconBack.setFitHeight(25);
+        this.iconBack.setFitWidth(25);
+        this.sub.setPrefWidth(25);
+        this.sub.setPrefHeight(25);
+        this.setGraphic(sub);
+
         this.master = master;
         this.minHeight(25);
         this.minWidth(25);
@@ -18,7 +31,10 @@ public class MapTile extends Button
         this.setWidth(25);
 
         this.setOnAction(e -> {
-            System.out.println("clicked");
+            master.list.checkBoxStatus();
+            this.icon = master.getSprite().getImage();
+            this.iconBack.setImage(icon);
+            this.setGraphic(iconBack);
         });
     }
 }

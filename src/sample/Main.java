@@ -21,7 +21,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
        // Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-       // master = new DungeonMaster(this);
+        master = new DungeonMaster(this);
         ImageView imageview = new ImageView(new Image("vintage_tan2.jpg"));
         stack.getChildren().add(imageview);
         imageview.setFitHeight(800);
@@ -59,7 +59,7 @@ public class Main extends Application {
 
     void displayDungeonMaster()
     {
-        DungeonMaster.display(this);
+        master.display();
     }
 
     void displayPlay()
