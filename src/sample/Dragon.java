@@ -1,6 +1,9 @@
 package sample;
 
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 
 /**
  * Created by david_000 on 6/29/2015.
@@ -8,7 +11,8 @@ import javafx.scene.image.Image;
 public class Dragon extends Sprite
 {
     Image image = new Image("dragons.jpg");
-    String name = "Dragon";
+    ImageView view = new ImageView();
+    Button name = new Button("Dragon");
     int health = 0;
     int hitPoints = 0;
     int numberOfDice = 1;
@@ -18,11 +22,11 @@ public class Dragon extends Sprite
 
     Dragon()
     {
-
+        this.view.setImage(image);
     }
 
-    Image getImage()
+    ImageView getImage()
     {
-        return image;
+        return this.view;
     }
 }

@@ -32,9 +32,7 @@ public class MapTile extends Button
 
         this.setOnAction(e -> {
             master.list.checkBoxStatus();
-            this.icon = master.getSprite().getImage();
-            this.iconBack.setImage(icon);
-            this.setGraphic(iconBack);
+            this.setGraphic(master.getSprite().getImage());
         });
     }
 }

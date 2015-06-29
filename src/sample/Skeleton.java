@@ -12,6 +12,7 @@
     {
         //Skeleton
         Image skeleton = new Image("skeletonbonecrusher.jpg");
+        ImageView view = new ImageView(skeleton);
         String name = "Skeleton";
         int health = 0;
         int hitPoints = 0;
@@ -25,9 +26,9 @@
 
         }
 
-        Image getImage()
+        ImageView getImage()
         {
-            return skeleton;
+            return view;
         }
     }
 

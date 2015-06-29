@@ -13,15 +13,17 @@ public class Sprites extends ScrollPane
 {
     CheckBox dragonBox;
     DungeonMaster master;
+    Dragon dragon = new Dragon();
     Sprites(DungeonMaster master)
     {
         this.master = master;
             GridPane grid = new GridPane();
             this.getChildren().add(grid);
             this.setContent(grid);
-
+            grid.add(this.dragon.view, 0, 0);
+            grid.add(this.dragon.name, 1, 0);
             //Dragon
-            ImageView dragonView = new ImageView();
+           /* ImageView dragonView = new ImageView();
             dragonView.setFitHeight(75);
             dragonView.setFitWidth(75);
             Image dragon = new Image("dragons.jpg");
@@ -34,7 +36,7 @@ public class Sprites extends ScrollPane
             dragonText.setPrefHeight(75);
             grid.add(dragonView, 0, 0);
             grid.add(dragonText, 1, 0);
-            grid.add(dragonBox, 2, 0);
+            grid.add(dragonBox, 2, 0);*/
 
             //Skeleton
             ImageView skeletonView = new ImageView();
