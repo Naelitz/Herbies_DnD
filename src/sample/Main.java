@@ -16,6 +16,7 @@ public class Main extends Application {
     BorderPane border = new BorderPane();
     StackPane stack = new StackPane();
     DungeonMaster master;
+    Dice dice;
     Scene scene = new Scene(stack, 800, 800);
 
     @Override
@@ -45,6 +46,10 @@ public class Main extends Application {
         tools.play.setOnAction(e -> {
             displayPlay();
         });
+
+        tools.dice.setOnAction(e -> {
+            displayDice();
+        });
     }
 
 
@@ -65,5 +70,11 @@ public class Main extends Application {
     void displayPlay()
     {
         Play.display(this);
+    }
+
+    void displayDice()
+    {
+        dice = new Dice(master);
+        dice.displayDice();
     }
 }
