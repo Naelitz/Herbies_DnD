@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.*;
@@ -17,6 +19,7 @@ public class CharacterCreator
     Stage stage;
     CharacterCreator(Main main)
     {
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         BorderPane border = new BorderPane();
         border.setStyle("-fx-background-color: #B89470");
         Scene scene = new Scene(border, 800, 800);
