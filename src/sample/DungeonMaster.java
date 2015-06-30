@@ -1,15 +1,13 @@
 package sample;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import sample.Characters.Sprite;
 
 public class DungeonMaster {
     //Image blankIcon = new Image("parchment.jpg");
@@ -60,7 +58,7 @@ public class DungeonMaster {
             window.show();
         }
 
-        void setSprite(Sprite sprite)
+        public void setSprite(Sprite sprite)
         {
             this.currentSprite = sprite;
         }

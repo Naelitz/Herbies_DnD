@@ -1,9 +1,10 @@
 
-    package sample;
+    package sample.Characters;
 
     import javafx.scene.control.Button;
     import javafx.scene.image.Image;
     import javafx.scene.image.ImageView;
+    import sample.DungeonMaster;
 
     /**
      * Created by david_000 on 6/29/2015.
@@ -12,9 +13,9 @@
     {
         //Skeleton
         Image skeleton = new Image("skeletonbonecrusher.jpg");
-        ImageView view = new ImageView(skeleton);
-        ImageView mapView = new ImageView(skeleton);
-        Button name = new Button("Skeleton");
+        public ImageView view = new ImageView(skeleton);
+        public ImageView mapView = new ImageView(skeleton);
+        public Button name = new Button("Skeleton");
         DungeonMaster master;
         int health = 0;
         int hitPoints = 0;
@@ -23,32 +24,36 @@
         int AC = 0;
         int speed = 0;
 
-        Skeleton(DungeonMaster master)
+        public Skeleton(DungeonMaster master)
         {
             this.master = master;
             view.setFitHeight(75);
             view.setFitWidth(75);
             mapView.setFitHeight(25);
             mapView.setFitWidth(25);
+
+            this.name.setOnAction(e -> {
+                master.setSprite(new Skeleton(master));
+            });
         }
 
-        ImageView getImage()
+        public ImageView getImage()
         {
             return view;
         }
 
-        ImageView getMapImage()
+        public ImageView getMapImage()
         {
             return mapView;
         }
 
-        void newSprite()
+        public void newSprite()
         {
             master.setSprite(new Skeleton(master));
         }
 
         @Override
-        String color() {
+        public String color() {
             return "-fx-base: #7A0000";
         }
     }

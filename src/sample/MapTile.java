@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import sample.Characters.Sprite;
+
 
 /**
  * Created by david_000 on 6/25/2015.

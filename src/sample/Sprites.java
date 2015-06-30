@@ -1,11 +1,12 @@
 package sample;
 
 import javafx.scene.control.*;
-import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import sample.Characters.Dragon;
+import sample.Characters.Skeleton;
+import sample.DungeonObjects.Wall;
 
 /**
  * Created by david_000 on 6/25/2015.
@@ -16,12 +17,13 @@ public class Sprites extends ScrollPane
     DungeonMaster master;
     Dragon dragon;
     Skeleton skeleton;
-    Wall wall = new Wall();
+    Wall wall;
     VBox box = new VBox();
     Sprites(DungeonMaster master)
     {
 
         this.master = master;
+        this.wall = new Wall(master);
         this.dragon = new Dragon(master);
         this.skeleton = new Skeleton(master);
         //GridPane grid = new GridPane();
