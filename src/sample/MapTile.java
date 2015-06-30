@@ -16,10 +16,12 @@ public class MapTile extends Button
     Image icon;
     ImageView iconBack = new ImageView();
     Pane sub = new Pane();
+    Sprite sprite;
     MapTile(DungeonMaster master)
     {
         this.iconBack.setFitHeight(25);
         this.iconBack.setFitWidth(25);
+        this.setStyle("-fx-base: #B89470");
         this.sub.setPrefWidth(25);
         this.sub.setPrefHeight(25);
         this.setGraphic(sub);
@@ -31,8 +33,10 @@ public class MapTile extends Button
         this.setWidth(25);
 
         this.setOnAction(e -> {
-            master.list.checkBoxStatus();
-            this.setGraphic(master.getSprite().getImage());
+            this.sprite = master.getSprite();
+            this.setGraphic(this.sprite.getMapImage());
+            this.sprite.newSprite();
+            this.setStyle(this.sprite.color());
         });
     }
 }

@@ -11,4 +11,10 @@ public abstract class Sprite
 
 
     abstract ImageView getImage();
+
+    abstract ImageView getMapImage();
+
+    abstract void newSprite();
+
+    abstract String color();
 }

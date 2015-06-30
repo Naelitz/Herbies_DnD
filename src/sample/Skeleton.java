@@ -13,7 +13,9 @@
         //Skeleton
         Image skeleton = new Image("skeletonbonecrusher.jpg");
         ImageView view = new ImageView(skeleton);
-        String name = "Skeleton";
+        ImageView mapView = new ImageView(skeleton);
+        Button name = new Button("Skeleton");
+        DungeonMaster master;
         int health = 0;
         int hitPoints = 0;
         int numberOfDice = 1;
@@ -21,14 +23,33 @@
         int AC = 0;
         int speed = 0;
 
-        Skeleton()
+        Skeleton(DungeonMaster master)
         {
-
+            this.master = master;
+            view.setFitHeight(75);
+            view.setFitWidth(75);
+            mapView.setFitHeight(25);
+            mapView.setFitWidth(25);
         }
 
         ImageView getImage()
         {
             return view;
+        }
+
+        ImageView getMapImage()
+        {
+            return mapView;
+        }
+
+        void newSprite()
+        {
+            master.setSprite(new Skeleton(master));
+        }
+
+        @Override
+        String color() {
+            return "-fx-base: #7A0000";
         }
     }
 

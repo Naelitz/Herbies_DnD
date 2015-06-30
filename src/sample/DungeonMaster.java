@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -11,9 +12,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class DungeonMaster {
-        Stage window;
+    //Image blankIcon = new Image("parchment.jpg");
+    Stage window;
         Sprites list;
         Sprite currentSprite;
+
         DungeonMaster(Main main)
         {
             // This is the menu that gets displayed if the help button is clicked.
@@ -30,11 +33,12 @@ public class DungeonMaster {
             GridPane center = new GridPane();
             ScrollPane centerScroll = new ScrollPane(center);
             layout.setLeft(list);
+            center.setStyle("-fx-background-color: #523212");
 
 
             this.window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);
-            list.prefWidthProperty().bind(window.widthProperty().divide(4));
+            list.prefWidthProperty().bind(window.widthProperty().divide(6));
             window.setFullScreen(true);
 
             layout.setCenter(centerScroll);
@@ -65,6 +69,8 @@ public class DungeonMaster {
         {
             return this.currentSprite;
         }
+
+
 
 
     }

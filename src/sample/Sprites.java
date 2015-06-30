@@ -5,6 +5,7 @@ import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 /**
  * Created by david_000 on 6/25/2015.
@@ -13,30 +14,24 @@ public class Sprites extends ScrollPane
 {
     CheckBox dragonBox;
     DungeonMaster master;
-    Dragon dragon = new Dragon();
+    Dragon dragon;
+    Skeleton skeleton;
+    Wall wall = new Wall();
+    VBox box = new VBox();
     Sprites(DungeonMaster master)
     {
-        this.master = master;
-            GridPane grid = new GridPane();
-            this.getChildren().add(grid);
-            this.setContent(grid);
-            grid.add(this.dragon.view, 0, 0);
-            grid.add(this.dragon.name, 1, 0);
-            //Dragon
-           /* ImageView dragonView = new ImageView();
-            dragonView.setFitHeight(75);
-            dragonView.setFitWidth(75);
-            Image dragon = new Image("dragons.jpg");
-            dragonView.setImage(dragon);
-            Label dragonText = new Label("dragon");
-            this.dragonBox = new CheckBox();
 
-            dragonBox.setPrefWidth(10);
-            dragonText.setPrefWidth(100);
-            dragonText.setPrefHeight(75);
-            grid.add(dragonView, 0, 0);
-            grid.add(dragonText, 1, 0);
-            grid.add(dragonBox, 2, 0);*/
+        this.master = master;
+        this.dragon = new Dragon(master);
+        this.skeleton = new Skeleton(master);
+        //GridPane grid = new GridPane();
+        //this.getChildren().add(grid);
+        this.setContent(box);
+        box.getChildren().add(new SpriteGrid(this.wall.getImage(), this.wall.btn));
+        box.getChildren().add(new SpriteGrid(this.dragon.view, this.dragon.name));
+       // grid.add(this.dragon.view, 0, 0);
+        //grid.add(this.dragon.name, 1, 0);
+
 
             //Skeleton
             ImageView skeletonView = new ImageView();
@@ -49,21 +44,15 @@ public class Sprites extends ScrollPane
 
             skeletonText.setPrefWidth(125);
             skeletonText.setPrefHeight(75);
-            grid.add(skeletonView, 0, 1);
-            grid.add(skeletonText, 1, 1);
+            box.getChildren().add(new SpriteGrid(this.skeleton.view, this.skeleton.name));
+         //   grid.add(skeletonView, 0, 1);
+         //   grid.add(skeletonText, 1, 1);
+
 
 
             skeletonText.setOnAction(e -> {
-                master.setSprite(new Skeleton());
+                master.setSprite(new Skeleton(master));
             });
 
-    }
-
-    void checkBoxStatus()
-    {
-        if (dragonBox.isSelected())
-        {
-            master.setSprite(new Dragon());
-        }
     }
 }
