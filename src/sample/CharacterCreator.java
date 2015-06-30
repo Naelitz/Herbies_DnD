@@ -16,14 +16,14 @@ import java.awt.Color;
  */
 public class CharacterCreator
 {
-    Stage stage;
-    CharacterCreator(Main main)
+    Stage stage = new Stage();
+    CharacterCreator(Main main) throws Exception
     {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        BorderPane border = new BorderPane();
-        border.setStyle("-fx-background-color: #B89470");
-        Scene scene = new Scene(border, 800, 800);
-        stage = new Stage();
+        //BorderPane border = new BorderPane();
+        //border.setStyle("-fx-background-color: #B89470");
+        stage.setTitle("character creator");
+        Scene scene = new Scene(root);
         stage.setScene(scene);
 
     }
