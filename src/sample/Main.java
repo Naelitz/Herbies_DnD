@@ -16,6 +16,7 @@ public class Main extends Application {
     BorderPane border = new BorderPane();
     StackPane stack = new StackPane();
     DungeonMaster master;
+    CharacterCreator character;
     Dice dice;
     Scene scene = new Scene(stack, 800, 800);
 
@@ -23,6 +24,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
        // Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         master = new DungeonMaster(this);
+        character = new CharacterCreator(this);
         ImageView imageview = new ImageView(new Image("vintage_tan2.jpg"));
         stack.getChildren().add(imageview);
         imageview.setFitHeight(800);
@@ -50,6 +52,10 @@ public class Main extends Application {
         tools.dice.setOnAction(e -> {
             displayDice();
         });
+
+        tools.character.setOnAction(e -> {
+            displayCharacter();
+        });
     }
 
 
@@ -76,5 +82,10 @@ public class Main extends Application {
     {
         dice = new Dice(master);
         dice.displayDice();
+    }
+
+    void displayCharacter()
+    {
+        character.display();
     }
 }
