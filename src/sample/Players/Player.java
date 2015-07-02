@@ -10,10 +10,10 @@ public class Player
     int armor;
     int hitPoints;
     int luck;
-Player()
-{
+    Player()
+    {
 
-}
+    }
 
     void setHealth(int h)
     {

@@ -95,8 +95,8 @@ public class CharacterCreator
         stage.setScene(scene);
 
         create.setOnAction(e -> {
-            Player person = new Player();
-            person.
+            //Player person = new Player();
+            //person.setHealth(3);
         });
 
     }
