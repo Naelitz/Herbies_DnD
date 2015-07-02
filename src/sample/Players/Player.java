@@ -7,6 +7,21 @@ public class Player
 {
     String name;
     int health;
-    int AC;
+    int armor;
     int hitPoints;
+    int luck;
+Player()
+{
+
+}
+
+    void setHealth(int h)
+    {
+
+    }
+
+    void setArmor(int a)
+    {
+        armor = a;
+    }
 }
