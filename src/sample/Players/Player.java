@@ -3,6 +3,11 @@ package sample.Players;
 import javafx.scene.image.Image;
 import sample.CharacterCreator;
 
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 /**
  * Created by naelitz on 6/30/15.
  */
@@ -93,6 +98,19 @@ public class Player
 
     public void save()
     {
-       // byte dataToWrite[]
+
+        try(DataOutputStream out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(name + ".dat"))))
+        {
+            out.writeChars(name);
+
+            out.writeInt(health);
+            out.writeInt(armor);
+            out.writeInt(hitPoints);
+            out.writeInt(luck);
+        }
+         catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
