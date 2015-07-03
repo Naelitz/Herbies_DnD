@@ -12,8 +12,8 @@ import javafx.scene.text.FontWeight;
  */
 public class Stat extends GridPane
 {
-    Label label = new Label("");
-    TextField text = new TextField("Enter Value Here");
+    public Label label = new Label("");
+    public TextField text = new TextField("Enter Value Here");
     Stat()
     {
         this.add(label, 0, 0);
