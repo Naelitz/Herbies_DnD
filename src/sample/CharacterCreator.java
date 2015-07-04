@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.*;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.Players.Player;
 
@@ -156,19 +157,14 @@ public class CharacterCreator
     }
 
 
-    void pictureChooser() throws IOException
-    {
-        try{
-        Desktop.getDesktop().open(new File("C:\\")); }
-        catch(IllegalArgumentException iae)
+    void pictureChooser() throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose Character Image");
+        File file = fileChooser.showOpenDialog(stage);
+        if (file != null)
         {
-            try{
-                Desktop.getDesktop().open(new File("/home/"));
-            }
-            catch(IllegalArgumentException iae2)
-            {
-                System.out.print("Hell NO!");
-            }
+            view.setImage(Image.(file));
+            viewButton.setGraphic(view);
         }
     }
 }
